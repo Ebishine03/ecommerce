@@ -1,0 +1,64 @@
+ {% load static %}
+
+    <!-- Featured Products -->
+
+    <div class="small-container">
+        <h2 class="title">Featured Products</h2>
+        <div class="row">
+        {% for product in products_fr %}
+            <div class="col-4">
+                <a href="{% url 'productDeatils' pk=product.id %}"><img src="{{ product.image.url }}"></a>
+                <h4>{{product.title}}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>{{ product.price }}</p>
+            </div>
+            {% endfor %}
+            <div class="page-btn">
+                {% if  products_fr.has_previous %}
+                <a href="?page_fr={{ products.previous_page_number }}"><span><<</span></a>
+                {% endif %}
+                {% for i in  products_fr.paginator.page_range %}
+                <a href="?page_fr={{ i }}"><span>{{ i }}</span></a>
+                {% endfor %}
+                {% if  products_fr.has_next %}
+                <a href="?page_fr={{ products.next_page_number }}"><span>>></span></a>
+                {% endif %}
+            </div>
+        </div>
+        <h2 class="title">Latest Products</h2>
+        <div class="row">
+        {% for product in products_lt %}
+            <div class="col-4">
+                <a href="{% url 'productDeatils' pk=product.id %}"><img src="{{ product.image.url }}"></a>
+                <h4>{{product.title}}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>{{ product.price }}</p>
+            </div>
+            {% endfor %}
+            <div class="page-btn">
+            
+                {% if products_lt.has_previous %}
+                <a href="?page_lt={{ products.previous_page_number }}"><span><<</span></a>
+                {% endif %}
+                {% for i in products_lt.paginator.page_range %}
+                <a href="?page_lt={{ i }}"><span>{{ i }}</span></a>
+                {% endfor %}
+                {% if products_lt.has_next %}
+                <a href="?page_lt={{ products.next_page_number }}"><span>>></span></a>
+                {% endif %}
+            </div>
+        </div>
+        
+    </div>

@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+*.env
+
+# Database
+*.sqlite3
+
+# Static files
+/staticfiles/
+
+# Media files
+/media/
+
+# Secret key
+*.secret_key
+
+# Logs
+*.log
+
+# Ignore migrations, they should be tracked in version control, but generated files can be ignored
+**/migrations/*.py
+**/migrations/*.pyc
